@@ -7,7 +7,7 @@ RM = rm -f
 SRCDIR = src
 TMPDIR = build
 TARGET = trumpotron
-FILES = main Markov
+FILES = main Markov MarkovMatrix
 
 #SOURCES = $(patsubst %,$(SRCDIR)/%.cpp,$(FILES))
 OBJECTS = $(patsubst %,$(TMPDIR)/%.o,$(FILES))
