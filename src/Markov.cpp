@@ -34,7 +34,7 @@ std::string Markov::regurgitate(int lines, std::string start)
 {
 	// Not sure if it should return or just correct invalid input.
 	// For now, just correct it.
-	if (lines<1) lines = 1;
+	if (lines < 1) lines = 1;
 	
 	std::string answer = "";
 	for (int i=0; i<lines; ++i) {

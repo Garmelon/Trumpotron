@@ -31,7 +31,7 @@ void MarkovMatrix::reset(int length)
 {
 	this->matrix.clear();
 	
-	if (length>0) {
+	if (length > 0) {
 		this->length = length;
 	}
 }
