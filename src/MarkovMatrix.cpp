@@ -15,7 +15,7 @@ MarkovMatrix::~MarkovMatrix()
 }
 
 
-void MarkovMatrix::feed(std::string line)
+void MarkovMatrix::feed(std::string& line)
 {
 	for (int i=0; i<=int(line.size()); ++i) {
 		int pos = std::max(i-this->length, 0);

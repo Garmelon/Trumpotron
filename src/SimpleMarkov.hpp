@@ -21,7 +21,7 @@ public:
 	virtual void throwUp(); // empty the belly of previous text
 	
 private:
-	virtual void swallowLine(std::string line);
+	virtual void swallowLine(std::string& line);
 	virtual std::string regurgitateLine(std::string start="");
 	
 	MarkovMatrix matrix;

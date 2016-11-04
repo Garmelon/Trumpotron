@@ -11,7 +11,7 @@ public:
 	MarkovMatrix(int length);
 	~MarkovMatrix();
 	
-	void feed(std::string line);
+	void feed(std::string& line);
 	void reset(int length=0); // reset the matrix, length>0 -> set a new length
 	std::map<std::string, int> hiccup(std::string& previous);
 	

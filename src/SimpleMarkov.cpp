@@ -54,7 +54,7 @@ void SimpleMarkov::throwUp()
 }
 
 
-void SimpleMarkov::swallowLine(std::string line)
+void SimpleMarkov::swallowLine(std::string& line)
 {
 	this->matrix.feed(line);
 }

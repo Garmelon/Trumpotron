@@ -21,7 +21,7 @@ public:
 	std::string regurgitate(int lines=1, std::string start="");
 	
 protected:
-	virtual void swallowLine(std::string line) =0;
+	virtual void swallowLine(std::string& line) =0;
 	virtual std::string regurgitateLine(std::string start="") =0;
 };
 
