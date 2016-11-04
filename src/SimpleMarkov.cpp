@@ -66,7 +66,7 @@ std::string SimpleMarkov::regurgitateLine(std::string start)
 	std::string next = "";
 	do {
 		// get the possible next characters from the matrix
-		std::map<std::string, int> possibles = this->matrix.hiccup(line);
+		std::unordered_map<std::string, int> possibles = this->matrix.hiccup(line);
 		
 		// calculate sum of all possibilities
 		int sum = 0;

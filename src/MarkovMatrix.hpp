@@ -1,7 +1,7 @@
 #ifndef MARKOVMATRIX_HPP
 #define MARKOVMATRIX_HPP
 
-#include <map>
+#include <unordered_map>
 #include <string>
 
 
@@ -13,11 +13,11 @@ public:
 	
 	void feed(std::string& line);
 	void reset(int length=0); // reset the matrix, length>0 -> set a new length
-	std::map<std::string, int> hiccup(std::string& previous);
+	std::unordered_map<std::string, int> hiccup(std::string& previous);
 	
 private:
 	int length;
-	std::map<std::string, std::map<std::string, int> > matrix;
+	std::unordered_map<std::string, std::unordered_map<std::string, int> > matrix;
 };
 
 #endif

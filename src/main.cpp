@@ -2,6 +2,7 @@
 #include <string>
 #include "SimpleMarkov.hpp"
 
+
 int main(int argc, char* argv[])
 {
 	if (argc > 5 || argc < 3) {

@@ -37,11 +37,11 @@ void MarkovMatrix::reset(int length)
 }
 
 
-std::map<std::string, int> MarkovMatrix::hiccup(std::string& previous)
+std::unordered_map<std::string, int> MarkovMatrix::hiccup(std::string& previous)
 {
 	int size = previous.size();
 	int pos = std::max(size-this->length, 0);
 	int len = size - pos;
 	std::string before = previous.substr(pos, len);
-	return this->matrix[before];
+	return this->matrix.at(before);
 }
