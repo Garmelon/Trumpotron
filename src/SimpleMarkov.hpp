@@ -11,6 +11,7 @@
 class SimpleMarkov : public Markov
 {
 public:
+	SimpleMarkov(std::string filename);
 	SimpleMarkov(int length=10);
 	virtual ~SimpleMarkov();
 	
@@ -26,6 +27,9 @@ private:
 	
 	MarkovMatrix matrix;
 	std::default_random_engine generator;
+	
+	const char file_gentype = 's'; // type of the generator
+	const char file_version = 1; // version of file format
 };
 
 #endif

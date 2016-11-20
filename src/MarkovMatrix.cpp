@@ -1,9 +1,17 @@
 #include "MarkovMatrix.hpp"
 
 #include <algorithm> // for std::max
+#include <iostream>
+#include <stdexcept>
 
 
-MarkovMatrix::MarkovMatrix(int length)
+MarkovMatrix::MarkovMatrix()
+{
+	// do nothing
+}
+
+
+MarkovMatrix::MarkovMatrix(char length)
 {
 	this->length = length;
 }
@@ -44,4 +52,42 @@ std::unordered_map<std::string, int> MarkovMatrix::hiccup(std::string& previous)
 	int len = size - pos;
 	std::string before = previous.substr(pos, len);
 	return this->matrix.at(before);
+}
+
+
+void MarkovMatrix::load(std::istream& is)
+{
+	char file_version;
+	is.read(&file_version, sizeof(char));
+}
+
+
+void MarkovMatrix::save(std::ostream& os)
+{
+	os << this->file_version << std::endl;
+	
+	os << this->matrix.size() << std::endl;
+	for (auto map : this->matrix) {
+		os << map.first << std::endl;
+		
+		os << map.second.size() << std::endl;
+		for (auto character : map.second) {
+			os << character.first << std::endl;
+			os << character.second << std::endl;
+		}
+	}
+}
+
+
+std::istream& operator>>(std::istream& is, MarkovMatrix& matrix)
+{
+	matrix.load(is);
+	return is;
+}
+
+
+std::ostream& operator<<(std::ostream& os, MarkovMatrix& matrix)
+{
+	matrix.save(os);
+	return os;
 }

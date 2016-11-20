@@ -1,6 +1,8 @@
 #include "SimpleMarkov.hpp"
 
 #include <chrono>
+#include <fstream>
+#include <stdexcept>
 
 /*
 class SimpleMarkov : public Markov
@@ -21,6 +23,10 @@ private:
 	virtual std::string regurgitateLine(std::string start="");
 };
 */
+SimpleMarkov::SimpleMarkov(std::string filename)
+{
+	this->load(filename);
+}
 
 SimpleMarkov::SimpleMarkov(int length) :
 	matrix(length),
@@ -36,15 +42,52 @@ SimpleMarkov::~SimpleMarkov()
 }
 
 
+/*
 void SimpleMarkov::load(std::string filename)
 {
-	// do nothing
+	std::ifstream ifs(filename);
+	std::string type, version;
+	ifs >> type >> version;
+	if (type != "s" || version != "0001") {
+		throw std::invalid_argument("Wrong file type or version.");
+	}
+	
+	ifs >> this->matrix;
+	ifs.close();
 }
 
 
 void SimpleMarkov::save(std::string filename)
 {
-	// do nothing
+	std::ofstream ofs(filename);
+	ofs << "s" << std::endl;
+	ofs << "0001" << std::endl;
+	ofs << this->matrix;
+	ofs.close();
+}
+*/
+
+
+void SimpleMarkov::load(std::string filename)
+{
+	std::ifstream ifs(filename);
+	
+	
+	
+	ifs.close();
+}
+
+
+void SimpleMarkov::save(std::string filename)
+{
+	std::ofstream ofs(filename);
+	
+	// file type and version of format
+	ofs << this->file_gentype << std::endl;
+	ofs << this->file_version << std::endl;
+	ofs << this->matrix;
+	
+	ofs.close();
 }
 
 
