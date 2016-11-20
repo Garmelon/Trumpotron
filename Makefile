@@ -1,5 +1,6 @@
 CC = g++ -std=c++14
-CFLAGS = -g -O0 -Wall --pedantic
+#CFLAGS = -g -O0 -Wall --pedantic
+CFLAGS = -O2 -march=native -Wall --pedantic
 LFLAGS =
 
 RM = rm -f
