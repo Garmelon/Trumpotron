@@ -17,6 +17,7 @@ void Markov::eat(std::string filename) // gobble up a file
 	{
 		this->swallowLine(line);
 	}
+	ifs.close();
 }
 
 
