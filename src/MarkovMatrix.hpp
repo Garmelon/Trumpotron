@@ -9,7 +9,7 @@ class MarkovMatrix
 {
 public:
 	MarkovMatrix();
-	MarkovMatrix(char length);
+	MarkovMatrix(int length);
 	~MarkovMatrix();
 	
 	void feed(std::string& line);
@@ -21,10 +21,10 @@ public:
 	virtual void save(std::ostream& os);
 	
 private:
-	char length = 0;
+	int length = 0;
 	std::unordered_map<std::string, std::unordered_map<std::string, int> > matrix;
 	
-	const char file_version = 1; // version of file format
+	const int file_version = 1; // version of file format
 };
 
 

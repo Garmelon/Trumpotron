@@ -29,7 +29,7 @@ private:
 	std::default_random_engine generator;
 	
 	const char file_gentype = 's'; // type of the generator
-	const char file_version = 1; // version of file format
+	const int file_version = 1; // version of file format
 };
 
 #endif

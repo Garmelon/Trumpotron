@@ -11,7 +11,7 @@ MarkovMatrix::MarkovMatrix()
 }
 
 
-MarkovMatrix::MarkovMatrix(char length)
+MarkovMatrix::MarkovMatrix(int length)
 {
 	this->length = length;
 }
@@ -57,14 +57,44 @@ std::unordered_map<std::string, int> MarkovMatrix::hiccup(std::string& previous)
 
 void MarkovMatrix::load(std::istream& is)
 {
-	char file_version;
-	is.read(&file_version, sizeof(char));
+	int version;
+	is >> version;
+	if (version != this->file_version) {
+		return;
+	}
+	
+	is >> this->length;
+	
+	int size;
+	is >> size;
+	std::cout << "size: " << size << std::endl;
+	std::string read; std::getline(is, read);
+	for (int i=0; i<size; ++i) {
+		// read line as string
+		std::string before;
+		std::getline(is, before);
+		// read line as int
+		std::getline(is, read);
+		int characters = std::stoi(read);
+		
+		for (int j=0; j<characters; ++j) {
+			// read line as string
+			std::string current;
+			std::getline(is, current);
+			// read line as int
+			std::getline(is, read);
+			int count = std::stoi(read);
+			
+			this->matrix[before][current] = count;
+		}
+	}
 }
 
 
 void MarkovMatrix::save(std::ostream& os)
 {
 	os << this->file_version << std::endl;
+	os << this->length << std::endl;
 	
 	os << this->matrix.size() << std::endl;
 	for (auto map : this->matrix) {

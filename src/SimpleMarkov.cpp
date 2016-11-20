@@ -4,6 +4,12 @@
 #include <fstream>
 #include <stdexcept>
 
+
+
+
+
+#include <iostream>
+
 /*
 class SimpleMarkov : public Markov
 {
@@ -72,7 +78,13 @@ void SimpleMarkov::load(std::string filename)
 {
 	std::ifstream ifs(filename);
 	
+	char gentype;
+	int version;
+	ifs >> gentype >> version;
 	
+	if (gentype == this->file_gentype and version == this->file_version) {
+		ifs >> this->matrix;
+	}
 	
 	ifs.close();
 }
