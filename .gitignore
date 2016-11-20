@@ -1,2 +1,7 @@
-build/*
 trumpotron
+
+build/*
+!build/.keep
+
+*.txt
+!trump_speech.txt
