@@ -7,7 +7,7 @@ int main(int argc, char* argv[])
 {
 	if (argc > 5 || argc < 3)
 	{
-		std::cout << "Usage: " << argv[0] << "<filename> [s][gsl] [...]" << std::endl;
+		std::cout << "Usage: " << argv[0] << " <filename> [s][gsl] [...]" << std::endl;
 		std::cout << "  s -- SimpleMarkov" << std::endl;
 		std::cout << "  sg: [<number_of_paragraphs> [<length>]] -> generate from file" << std::endl;
 		std::cout << "  ss: <filename> [<length>]               -> save" << std::endl;
